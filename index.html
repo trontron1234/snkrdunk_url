@@ -30,20 +30,18 @@
                     <input type="text" id="keywords" placeholder="例: Air Jordan">
                 </div>
                 <div class="param-item">
-                    <label for="tab">タブ:</label>
-                    <select id="tab">
-                        <option value="primary">primary</option>
-                        <option value="hottest">hottest</option>
-                        <option value="new">new</option>
-                        <option value="low">low</option>
-                        <option value="high">high</option>
-                    </select>
+                    <label for="modelId">モデルID:</label>
+                    <input type="text" id="modelId" placeholder="例: air-jordan-1">
                 </div>
                 <div class="param-item">
-                    <label for="slide">スライド方向:</label>
+                    <label for="type">タイプ:</label>
+                    <input type="text" id="type" placeholder="例: sneakers">
+                </div>
+                <div class="param-item">
+                    <label for="page_transition">ページ遷移方法:</label>
                     <select id="slide">
-                        <option value="right">right</option>
-                        <option value="left">left</option>
+                        <option value="right">スライド (right)</option>
+                        <option value="modal">モーダル (modal)</option>
                     </select>
                 </div>
             </div>
@@ -61,6 +59,10 @@
                 <div class="param-item checkbox">
                     <input type="checkbox" id="isUnderRetail">
                     <label for="isUnderRetail">定価以下のみ (isUnderRetail=true)</label>
+                </div>
+                <div class="param-item checkbox">
+                    <input type="checkbox" id="isDiscount">
+                    <label for="isDiscount">割引商品表示 (isDiscount=true)</label>
                 </div>
                 <div class="param-item checkbox">
                     <input type="checkbox" id="isDiscountFirst">
@@ -96,16 +98,19 @@
                 </div>
             </div>
 
-            <h2>その他の設定</h2>
+            <h2>ソート設定</h2>
             <div class="param-group">
                 <div class="param-item">
                     <label for="sort">並び替え:</label>
                     <select id="sort">
                         <option value="">選択なし</option>
+                        <option value="recommend">おすすめ順</option>
                         <option value="hottest">人気順</option>
-                        <option value="new">新着順</option>
-                        <option value="low">価格の安い順</option>
-                        <option value="high">価格の高い順</option>
+                        <option value="latest">新着順</option>
+                        <option value="price_low">価格の安い順</option>
+                        <option value="price_high">価格の高い順</option>
+                        <option value="launch">発売日順</option>
+                        <option value="favorite">お気に入り順</option>
                     </select>
                 </div>
                 <div class="param-item">
