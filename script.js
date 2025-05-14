@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const itemSizes = document.getElementById('itemSizes').value;
         
         // パラメータの設定
-        if (brandIds) params.append('brandIds', brandIds);
+        if (brandIds) params.append('brandId', brandIds);
         if (keywords) params.append('keywords', encodeURIComponent(keywords));
         if (modelId) params.append('modelId', modelId);
         if (type) params.append('type', type);
