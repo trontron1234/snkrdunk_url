@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNKRDUNK URL生成ツール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>SNKRDUNK URL生成ツール</h1>
+        <p>検索パラメータを設定して、簡単にURLを生成できます</p>
+        
+        <div class="url-display">
+            <input type="text" id="generated-url" readonly>
+            <button id="copy-btn">コピー</button>
+        </div>
+        
+        <div class="url-input">
+            <label for="existing-url">既存のURLを解析：</label>
+            <input type="text" id="existing-url" placeholder="https://snkrdunk.com/search/article/?...">
+            <button id="parse-btn">解析</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="basic">基本設定</button>
+            <button class="tab-btn" data-tab="category">カテゴリ</button>
+            <button class="tab-btn" data-tab="filter">フィルター</button>
+            <button class="tab-btn" data-tab="sort">ソート順</button>
+        </div>
+
+        <div class="tab-content active" id="basic">
+            <h2>基本設定</h2>
+            <div class="form-group">
+                <label for="keywords">検索キーワード：</label>
+                <input type="text" id="keywords" placeholder="例：エアジョーダン">
+            </div>
+            <div class="form-group">
+                <label for="brandId">ブランドID：</label>
+                <input type="text" id="brandId" placeholder="例：nike,adidas">
+                <small>複数指定する場合はカンマ区切り</small>
+            </div>
+            <div class="form-group">
+                <label for="isSaleOnly">販売中のみ表示：</label>
+                <input type="checkbox" id="isSaleOnly">
+            </div>
+            <div class="form-group">
+                <label for="isFirstHand">ブランド公式のみ表示：</label>
+                <input type="checkbox" id="isFirstHand">
+            </div>
+        </div>
+
+        <div class="tab-content" id="category">
+            <h2>カテゴリ設定</h2>
+            <div class="form-group">
+                <label for="rootCategoryId">ルートカテゴリID：</label>
+                <input type="text" id="rootCategoryId" placeholder="例：1,2">
+                <small>複数指定する場合はカンマ区切り</small>
+            </div>
+            <div class="form-group">
+                <label for="categoryId">カテゴリID：</label>
+                <input type="text" id="categoryId" placeholder="例：cat1,cat2">
+                <small>複数指定する場合はカンマ区切り</small>
+            </div>
+            <div class="form-group">
+                <label for="subCategoryId">サブカテゴリID：</label>
+                <input type="text" id="subCategoryId" placeholder="例：sub1,sub2">
+                <small>複数指定する場合はカンマ区切り</small>
+            </div>
+            <div class="form-group">
+                <label for="searchCategoryIds">検索カテゴリID（v3）：</label>
+                <input type="text" id="searchCategoryIds" placeholder="例：2/17,6/33">
+                <small>複数指定する場合はカンマ区切り</small>
+            </div>
+        </div>
+
+        <div class="tab-content" id="filter">
+            <h2>フィルター設定</h2>
+            <div class="form-group">
+                <label for="isUnderRetail">定価以下のみ表示：</label>
+                <input type="checkbox" id="isUnderRetail">
+            </div>
+            <div class="form-group">
+                <label for="isDiscount">割引商品を先頭に表示：</label>
+                <input type="checkbox" id="isDiscount">
+            </div>
+            <div class="form-group">
+                <label for="isDiscounted">割引商品のみ表示：</label>
+                <input type="checkbox" id="isDiscounted">
+            </div>
+            <div class="form-group">
+                <label for="isDiscountFirst">セール優先表示：</label>
+                <input type="checkbox" id="isDiscountFirst">
+            </div>
+            <div class="form-group">
+                <label for="itemConditions">商品状態：</label>
+                <input type="text" id="itemConditions" placeholder="例：brand_new,no_damage">
+                <small>複数指定する場合はカンマ区切り</small>
+            </div>
+            <div class="form-group">
+                <label for="itemSizes">サイズ：</label>
+                <input type="text" id="itemSizes" placeholder="例：footwear_size_26,footwear_size_26_5">
+                <small>複数指定する場合はカンマ区切り</small>
+            </div>
+            <div class="form-group">
+                <label for="minPrice">最低価格：</label>
+                <input type="number" id="minPrice" placeholder="例：5000">
+            </div>
+            <div class="form-group">
+                <label for="maxPrice">最高価格：</label>
+                <input type="number" id="maxPrice" placeholder="例：50000">
+            </div>
+        </div>
+
+        <div class="tab-content" id="sort">
+            <h2>ソート設定</h2>
+            <div class="form-group">
+                <label for="sort-type">ソート順（v3）：</label>
+                <select id="sort-type">
+                    <option value="">選択してください</option>
+                    <option value="recommend">おすすめ順</option>
+                    <option value="hottest">人気順</option>
+                    <option value="latest">新着順</option>
+                    <option value="price_low">価格の安い順</option>
+                    <option value="price_high">価格の高い順</option>
+                    <option value="launch">発売日順</option>
+                    <option value="favorite">お気に入り順</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="tab-type">タブ（v2）：</label>
+                <select id="tab-type">
+                    <option value="">選択してください</option>
+                    <option value="hottest">人気順</option>
+                    <option value="price_low">価格の安い順</option>
+                    <option value="favorite">お気に入り順</option>
+                    <option value="primary">公式順</option>
+                    <option value="latest">新着順</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="generate-btn" class="primary-btn">URLを生成</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
