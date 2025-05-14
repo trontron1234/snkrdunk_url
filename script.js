@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const params = new URLSearchParams();
         
         // 基本設定
-        const brandId = document.getElementById('brandId').value;
+        const brandIds = document.getElementById('brandIds').value;
         const keywords = document.getElementById('keywords').value;
         const modelId = document.getElementById('modelId').value;
         const type = document.getElementById('type').value;
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const itemSizes = document.getElementById('itemSizes').value;
         
         // パラメータの設定
-        if (brandId) params.append('brandId', brandId);
+        if (brandIds) params.append('brandIds', brandIds);
         if (keywords) params.append('keywords', encodeURIComponent(keywords));
         if (modelId) params.append('modelId', modelId);
         if (type) params.append('type', type);
