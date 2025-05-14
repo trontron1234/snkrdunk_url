@@ -1,14 +1,14 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
     background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
 }
 
 .container {
@@ -16,167 +16,120 @@ body {
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: #ff3d00;
 }
 
-p {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #666;
+h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #ff3d00;
+    padding-bottom: 5px;
 }
 
 .url-display {
-    display: flex;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
-.url-display input {
-    flex: 1;
+.url-result {
     padding: 10px;
+    min-height: 60px;
+    background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
+    border-radius: 4px;
+    word-break: break-all;
+    font-family: monospace;
+    font-size: 14px;
+    margin-bottom: 10px;
+    overflow-x: auto;
+}
+
+#copyButton, #clearButton {
+    background-color: #ff3d00;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
     font-size: 14px;
 }
 
-.url-display button {
-    padding: 10px 15px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
+#clearButton {
+    background-color: #777;
 }
 
-.url-input {
+#copyButton:hover, #clearButton:hover {
+    opacity: 0.9;
+}
+
+.params-container {
+    margin-top: 20px;
+}
+
+.param-group {
     display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.param-item {
+    flex: 1 1 200px;
+}
+
+.param-item.checkbox {
+    display: flex;
     align-items: center;
+    gap: 5px;
 }
 
-.url-input label {
-    margin-right: 10px;
-    white-space: nowrap;
-}
-
-.url-input input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-right: 10px;
-}
-
-.url-input button {
-    padding: 10px 15px;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.tabs {
-    display: flex;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-.tab-btn {
-    padding: 10px 20px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    color: #666;
-}
-
-.tab-btn.active {
-    color: #2196F3;
-    border-bottom: 2px solid #2196F3;
-}
-
-.tab-content {
-    display: none;
-    padding: 20px 0;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
+.param-item label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group select {
+.param-item.checkbox label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.param-item input[type="text"],
+.param-item input[type="number"],
+.param-item select {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 14px;
 }
 
-.form-group small {
-    display: block;
-    color: #666;
-    font-size: 12px;
-    margin-top: 5px;
-}
-
-.primary-btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-}
-
-.primary-btn:hover {
-    background-color: #0b7dda;
-}
-
-@media (max-width: 600px) {
-    .tabs {
-        flex-wrap: wrap;
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
     }
     
-    .tab-btn {
-        flex: 1;
-        text-align: center;
-        padding: 8px 10px;
-        font-size: 14px;
-    }
-    
-    .url-input {
+    .param-group {
         flex-direction: column;
-        align-items: stretch;
     }
     
-    .url-input label {
-        margin-bottom: 5px;
-    }
-    
-    .url-input input {
-        margin-right: 0;
-        margin-bottom: 10px;
+    .param-item {
+        flex: 1 1 100%;
     }
 }
