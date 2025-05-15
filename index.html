@@ -29,13 +29,15 @@
                     <label for="keywords">キーワード:</label>
                     <input type="text" id="keywords" placeholder="例: Air Jordan">
                 </div>
-                <div class="param-item">
+                <div class="param-item coming-soon">
                     <label for="modelId">モデルID:</label>
-                    <input type="text" id="modelId" placeholder="例: air-jordan-1">
+                    <input type="text" id="modelId" placeholder="Coming Soon..." disabled>
+                    <span class="coming-soon-badge">Coming Soon</span>
                 </div>
-                <div class="param-item">
+                <div class="param-item coming-soon">
                     <label for="type">商品タイプ:</label>
-                    <input type="text" id="type" placeholder="例: used">
+                    <input type="text" id="type" placeholder="Coming Soon..." disabled>
+                    <span class="coming-soon-badge">Coming Soon</span>
                 </div>
                 <div class="param-item">
                     <label for="slide">ページ遷移方法:</label>
@@ -60,29 +62,33 @@
                     <input type="checkbox" id="isUnderRetail">
                     <label for="isUnderRetail">定価以下のみ (isUnderRetail=true)</label>
                 </div>
-                <div class="param-item checkbox">
-                    <input type="checkbox" id="isDiscount">
-                    <label for="isDiscount">割引商品表示 (isDiscount=true)</label>
+                <div class="param-item checkbox coming-soon">
+                    <input type="checkbox" id="isDiscount" disabled>
+                    <label for="isDiscount" class="disabled-label">割引商品表示 (isDiscount=true)</label>
+                    <span class="coming-soon-badge">Coming Soon</span>
                 </div>
-                <div class="param-item checkbox">
-                    <input type="checkbox" id="isDiscountFirst">
-                    <label for="isDiscountFirst">割引優先表示 (isDiscountFirst=true)</label>
+                <div class="param-item checkbox coming-soon">
+                    <input type="checkbox" id="isDiscountFirst" disabled>
+                    <label for="isDiscountFirst" class="disabled-label">割引優先表示 (isDiscountFirst=true)</label>
+                    <span class="coming-soon-badge">Coming Soon</span>
                 </div>
             </div>
 
             <h2>カテゴリ設定</h2>
             <div class="param-group">
                 <div class="param-item">
-                    <label for="rootCategoryId">ルートカテゴリID:</label>
-                    <input type="text" id="rootCategoryId" placeholder="例: 1">
+                    <label for="searchCategoryIds">検索カテゴリID:</label>
+                    <input type="text" id="searchCategoryIds" placeholder="例: 2/17,6/33">
                 </div>
-                <div class="param-item">
+                <div class="param-item coming-soon">
                     <label for="categoryId">カテゴリID:</label>
-                    <input type="text" id="categoryId" placeholder="例: 2,3">
+                    <input type="text" id="categoryId" placeholder="Coming Soon..." disabled>
+                    <span class="coming-soon-badge">Coming Soon</span>
                 </div>
-                <div class="param-item">
+                <div class="param-item coming-soon">
                     <label for="subCategoryId">サブカテゴリID:</label>
-                    <input type="text" id="subCategoryId" placeholder="例: 5,6">
+                    <input type="text" id="subCategoryId" placeholder="Coming Soon..." disabled>
+                    <span class="coming-soon-badge">Coming Soon</span>
                 </div>
             </div>
 

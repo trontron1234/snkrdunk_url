@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const generatedUrl = document.getElementById('generatedUrl');
     const copyButton = document.getElementById('copyButton');
     const clearButton = document.getElementById('clearButton');
-    const inputs = document.querySelectorAll('input, select');
+    const inputs = document.querySelectorAll('input:not([disabled]), select');
     
     // 入力が変更されたらURLを更新
     inputs.forEach(input => {
@@ -49,21 +49,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // 基本設定
         const brandIds = document.getElementById('brandIds').value;
         const keywords = document.getElementById('keywords').value;
-        const modelId = document.getElementById('modelId').value;
-        const type = document.getElementById('type').value;
         const slide = document.getElementById('slide').value;
         
         // フィルター設定
         const isFirstHand = document.getElementById('isFirstHand').checked;
         const isSaleOnly = document.getElementById('isSaleOnly').checked;
         const isUnderRetail = document.getElementById('isUnderRetail').checked;
-        const isDiscount = document.getElementById('isDiscount').checked;
-        const isDiscountFirst = document.getElementById('isDiscountFirst').checked;
         
         // カテゴリ設定
-        const rootCategoryId = document.getElementById('rootCategoryId').value;
-        const categoryId = document.getElementById('categoryId').value;
-        const subCategoryId = document.getElementById('subCategoryId').value;
+        const searchCategoryIds = document.getElementById('searchCategoryIds').value;
         
         // 価格設定
         const minPrice = document.getElementById('minPrice').value;
@@ -77,19 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
         // パラメータの設定
         if (brandIds) params.append('brandId', brandIds);
         if (keywords) params.append('keywords', encodeURIComponent(keywords));
-        if (modelId) params.append('modelId', modelId);
-        if (type) params.append('type', type);
         if (slide) params.append('slide', slide);
         
         if (isFirstHand) params.append('isFirstHand', 'true');
         if (isSaleOnly) params.append('isSaleOnly', 'true');
         if (isUnderRetail) params.append('isUnderRetail', 'true');
-        if (isDiscount) params.append('isDiscount', 'true');
-        if (isDiscountFirst) params.append('isDiscountFirst', 'true');
         
-        if (rootCategoryId) params.append('rootCategoryId', rootCategoryId);
-        if (categoryId) params.append('categoryId', categoryId);
-        if (subCategoryId) params.append('subCategoryId', subCategoryId);
+        if (searchCategoryIds) params.append('searchCategoryIds', searchCategoryIds);
         
         if (minPrice) params.append('minPrice', minPrice);
         if (maxPrice) params.append('maxPrice', maxPrice);
