@@ -121,6 +121,35 @@ h2 {
     font-size: 14px;
 }
 
+/* 複数選択リスト用のスタイル */
+.param-item select[multiple] {
+    height: auto;
+    min-height: 150px;
+}
+
+.param-item select[multiple] option {
+    padding: 8px;
+    font-size: 13px;
+}
+
+.param-item select[multiple] option:hover {
+    background-color: #f0f0f0;
+}
+
+.param-item optgroup {
+    font-style: normal;
+    font-weight: bold;
+    padding: 5px;
+    background-color: #eee;
+}
+
+.param-item small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+}
+
 /* Coming Soon スタイル */
 .coming-soon {
     position: relative;
@@ -194,5 +223,9 @@ h2 {
     
     .param-item {
         flex: 1 1 100%;
+    }
+    
+    .param-item select[multiple] {
+        min-height: 180px;
     }
 }

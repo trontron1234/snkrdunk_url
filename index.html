@@ -114,12 +114,104 @@
                     </select>
                 </div>
                 <div class="param-item">
+                    <label for="conditionType">商品状態タイプ:</label>
+                    <select id="conditionType">
+                        <option value="general">一般商品</option>
+                        <option value="trading_card">トレーディングカード</option>
+                    </select>
+                </div>
+                <div class="param-item">
                     <label for="itemConditions">商品状態:</label>
-                    <input type="text" id="itemConditions" placeholder="例: brand_new,no_damage">
+                    <select id="itemConditions" multiple size="5">
+                        <optgroup label="一般商品" class="general-conditions">
+                            <option value="brand_new">S (新品・未使用)</option>
+                            <option value="brand_new_defect">A+ (新品・未使用(ワケあり))</option>
+                            <option value="almost_new">A (未使用に近い)</option>
+                            <option value="no_damage">B (目立った傷や汚れなし)</option>
+                            <option value="slight_damage">C (やや傷汚れあり)</option>
+                            <option value="damaged">D (傷や汚れあり)</option>
+                            <option value="poor_condition">E (全体的に状態が悪い)</option>
+                        </optgroup>
+                        <optgroup label="トレーディングカード" class="card-conditions">
+                            <option value="like_new">A (きれいな状態)</option>
+                            <option value="minor_scratches">B (小さなキズ/ソリがある品)</option>
+                            <option value="moderate_scratches">C (中程度のキズ/ソリあり)</option>
+                            <option value="significant_damage">D (大きなダメージあり)</option>
+                            <option value="psa_10">PSA10</option>
+                            <option value="psa_9">PSA9</option>
+                            <option value="psa_8_below">PSA8以下</option>
+                            <option value="bgs_10_black">BGS10 BK</option>
+                            <option value="bgs_10_gold">BGS10 GL</option>
+                            <option value="bgs_9_5">BGS9.5</option>
+                            <option value="bgs_9_below">BGS9以下</option>
+                            <option value="ars_10_plus">ARS10+</option>
+                            <option value="ars_10">ARS10</option>
+                            <option value="ars_9">ARS9</option>
+                            <option value="ars_8_below">ARS8以下</option>
+                        </optgroup>
+                    </select>
+                    <small>※Ctrl/Commandキーを押しながら複数選択できます</small>
+                </div>
+                <div class="param-item">
+                    <label for="sizeType">サイズタイプ:</label>
+                    <select id="sizeType">
+                        <option value="footwear">スニーカー/シューズ</option>
+                        <option value="wear">アパレル</option>
+                        <option value="quantity">数量(トレカなど)</option>
+                    </select>
                 </div>
                 <div class="param-item">
                     <label for="itemSizes">サイズ:</label>
-                    <input type="text" id="itemSizes" placeholder="例: wear_size_2xs,wear_size_xs">
+                    <select id="itemSizes" multiple size="5">
+                        <optgroup label="スニーカー/シューズ" class="footwear-sizes">
+                            <option value="footwear_size_lower_than_22">22cm以下</option>
+                            <option value="footwear_size_22_5">22.5cm</option>
+                            <option value="footwear_size_23">23cm</option>
+                            <option value="footwear_size_23_5">23.5cm</option>
+                            <option value="footwear_size_24">24cm</option>
+                            <option value="footwear_size_24_5">24.5cm</option>
+                            <option value="footwear_size_25">25cm</option>
+                            <option value="footwear_size_25_5">25.5cm</option>
+                            <option value="footwear_size_26">26cm</option>
+                            <option value="footwear_size_26_5">26.5cm</option>
+                            <option value="footwear_size_27">27cm</option>
+                            <option value="footwear_size_27_5">27.5cm</option>
+                            <option value="footwear_size_28">28cm</option>
+                            <option value="footwear_size_28_5">28.5cm</option>
+                            <option value="footwear_size_29">29cm</option>
+                            <option value="footwear_size_29_5">29.5cm</option>
+                            <option value="footwear_size_30">30cm</option>
+                            <option value="footwear_size_30_5">30.5cm</option>
+                            <option value="footwear_size_31">31cm</option>
+                            <option value="footwear_size_32_or_above">32cm以上</option>
+                        </optgroup>
+                        <optgroup label="アパレル" class="apparel-sizes">
+                            <option value="wear_size_2xs">2XS</option>
+                            <option value="wear_size_xs">XS</option>
+                            <option value="wear_size_s">S</option>
+                            <option value="wear_size_m">M</option>
+                            <option value="wear_size_l">L</option>
+                            <option value="wear_size_xl">XL</option>
+                            <option value="wear_size_2xl">2XL</option>
+                            <option value="wear_size_3xl">3XL</option>
+                            <option value="wear_other">その他</option>
+                        </optgroup>
+                        <optgroup label="数量(トレカなど)" class="quantity-sizes">
+                            <option value="quantity_1">1</option>
+                            <option value="quantity_2">2</option>
+                            <option value="quantity_3">3</option>
+                            <option value="quantity_4">4</option>
+                            <option value="quantity_5">5</option>
+                            <option value="quantity_6">6</option>
+                            <option value="quantity_7">7</option>
+                            <option value="quantity_8">8</option>
+                            <option value="quantity_9">9</option>
+                            <option value="quantity_10">10</option>
+                            <option value="quantity_15">15</option>
+                            <option value="quantity_20_or_above">20以上</option>
+                        </optgroup>
+                    </select>
+                    <small>※Ctrl/Commandキーを押しながら複数選択できます</small>
                 </div>
             </div>
         </div>
