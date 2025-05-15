@@ -110,14 +110,21 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // スペースを+に変換するエンコード関数
     function encodeWithPlusSign(str) {
-        // 通常のencodeURIComponentでエンコードした後、%20を+に置換
-        return encodeURIComponent(str).replace(/%20/g, '+');
+        // URLSearchParamsを使わずに直接エンコードしてスペースを+に変換
+        return str.replace(/\s+/g, '+').replace(/[^a-zA-Z0-9\-_.!~*'()+]/g, function(c) {
+            return '%' + c.charCodeAt(0).toString(16).toUpperCase();
+        });
+    }
+    
+    // 安全なURLパラメータ用のエンコード
+    function encodeParam(str) {
+        return encodeURIComponent(str);
     }
     
     // URLの更新処理
     function updateUrl() {
         let url = 'https://snkrdunk.com/search/article/?';
-        const params = new URLSearchParams();
+        let params = [];
         
         // 基本設定
         const brandIds = document.getElementById('brandIds').value;
@@ -142,35 +149,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const itemSizesValues = getSelectedValues(document.getElementById('itemSizes'));
         
         // パラメータの設定
-        if (brandIds) params.append('brandId', brandIds);
-        if (keywords) params.append('keywords', encodeWithPlusSign(keywords));
-        if (slide) params.append('slide', slide);
+        if (brandIds) params.push(`brandId=${encodeParam(brandIds)}`);
+        if (keywords) params.push(`keywords=${keywords.replace(/\s+/g, '+')}`);
+        if (slide) params.push(`slide=${encodeParam(slide)}`);
         
-        if (isFirstHand) params.append('isFirstHand', 'true');
-        if (isSaleOnly) params.append('isSaleOnly', 'true');
-        if (isUnderRetail) params.append('isUnderRetail', 'true');
+        if (isFirstHand) params.push('isFirstHand=true');
+        if (isSaleOnly) params.push('isSaleOnly=true');
+        if (isUnderRetail) params.push('isUnderRetail=true');
         
-        if (searchCategoryIds) params.append('searchCategoryIds', searchCategoryIds);
+        if (searchCategoryIds) params.push(`searchCategoryIds=${encodeParam(searchCategoryIds)}`);
         
-        if (minPrice) params.append('minPrice', minPrice);
-        if (maxPrice) params.append('maxPrice', maxPrice);
+        if (minPrice) params.push(`minPrice=${encodeParam(minPrice)}`);
+        if (maxPrice) params.push(`maxPrice=${encodeParam(maxPrice)}`);
         
-        if (sort) params.append('sort', sort);
+        if (sort) params.push(`sort=${encodeParam(sort)}`);
         
         // 商品状態（複数選択可能）
         if (itemConditionsValues.length > 0) {
-            params.append('itemConditions', itemConditionsValues.join(','));
+            params.push(`itemConditions=${encodeParam(itemConditionsValues.join(','))}`);
         }
         
         // サイズ（複数選択可能）
         if (itemSizesValues.length > 0) {
-            params.append('itemSizes', itemSizesValues.join(','));
+            params.push(`itemSizes=${encodeParam(itemSizesValues.join(','))}`);
         }
         
         // URLパラメータ文字列の生成
-        const paramString = params.toString();
-        if (paramString) {
-            url += paramString;
+        if (params.length > 0) {
+            url += params.join('&');
         }
         
         // 生成されたURLを表示
