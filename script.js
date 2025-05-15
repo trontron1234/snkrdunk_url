@@ -108,6 +108,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return selectedOptions.map(option => option.value);
     }
     
+    // スペースを+に変換するエンコード関数
+    function encodeWithPlusSign(str) {
+        // 通常のencodeURIComponentでエンコードした後、%20を+に置換
+        return encodeURIComponent(str).replace(/%20/g, '+');
+    }
+    
     // URLの更新処理
     function updateUrl() {
         let url = 'https://snkrdunk.com/search/article/?';
@@ -137,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // パラメータの設定
         if (brandIds) params.append('brandId', brandIds);
-        if (keywords) params.append('keywords', encodeURIComponent(keywords));
+        if (keywords) params.append('keywords', encodeWithPlusSign(keywords));
         if (slide) params.append('slide', slide);
         
         if (isFirstHand) params.append('isFirstHand', 'true');
